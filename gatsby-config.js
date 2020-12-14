@@ -2,11 +2,13 @@ module.exports = {
 	siteMetadata: {
 		title: "ExiVue 1.0",
 	},
+	pathPrefix: "/exivue",
 	plugins: [
 		"gatsby-plugin-image",
 		"gatsby-plugin-react-helmet",
 		"gatsby-plugin-sharp",
 		"gatsby-transformer-sharp",
+		"gatsby-plugin-react-helmet",
 		{
 			resolve: "gatsby-source-filesystem",
 			options: {
