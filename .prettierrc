@@ -16,6 +16,5 @@
     "trailingComma": "es5",
     "useTabs": true,
     "vueIndentScriptAndStyle": false,
-    "filepath": "f:\\Henry's Stuff\\Velotics Technologies\\Projects\\Casmium\\src\\components\\dataComponents\\Table.js",
     "parser": "babel"
   }
