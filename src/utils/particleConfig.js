@@ -6,11 +6,11 @@ export const options = {
 		detectsOn: "canvas",
 		events: {
 			onClick: {
-				enable: true,
+				enable: false,
 				mode: "push",
 			},
 			onHover: {
-				enable: true,
+				enable: false,
 				mode: "repulse",
 			},
 			resize: true,
@@ -58,7 +58,7 @@ export const options = {
 				enable: true,
 				value_area: 800,
 			},
-			value: 80,
+			value: 40,
 		},
 		opacity: {
 			value: 0.5,

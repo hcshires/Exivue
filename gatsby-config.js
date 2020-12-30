@@ -4,7 +4,6 @@ module.exports = {
 	},
 	pathPrefix: "/exivue",
 	plugins: [
-		"gatsby-plugin-image",
 		"gatsby-plugin-react-helmet",
 		"gatsby-plugin-sharp",
 		"gatsby-transformer-sharp",
@@ -26,12 +25,12 @@ module.exports = {
 			__key: "pages",
 		},
 		{
-			resolve: '@el7cosmos/gatsby-plugin-prefetch-google-fonts',
+			resolve: "@el7cosmos/gatsby-plugin-prefetch-google-fonts",
 			options: {
 				fonts: [
 					{
-						family: 'Exo 2',
-						variants: ['100', '400'],
+						family: "Exo 2",
+						variants: ["100", "400"],
 					},
 				],
 			},
