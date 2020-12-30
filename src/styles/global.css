@@ -6,7 +6,7 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2 {
+h1, h2, h3, h4 {
     color: white;
     font-family: 'Exo 2', sans-serif;
     font-weight: 100 !important;
@@ -17,12 +17,44 @@ h1 {
 }
 
 h2 {
+    font-size: 5vw !important;
+}
+
+h3 {
     font-size: calc(10px + 2vmin) !important;
+}
+
+.section {
+    margin-top: 100px;
+}
+
+.verticalAlign {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .react-icons {
     vertical-align: middle;
-  }
+}
+
+.header {
+    margin: 15px 0px;
+    padding: 50px 0px;
+    border: 3px solid white;
+    border-radius: 8px;
+}
+
+.list-group-item.active {
+    background-color: white !important;
+    border-color: white !important;
+    color: #333333 !important;
+}
+
+.list-group-item {
+    background-color: #333333 !important;
+    border-color: white !important;
+    color: white !important;
+}
 
 /* Scrollbar */
 /* width */
