@@ -58,7 +58,7 @@ export const options = {
 				enable: true,
 				value_area: 800,
 			},
-			value: 40,
+			value: 30,
 		},
 		opacity: {
 			value: 0.5,

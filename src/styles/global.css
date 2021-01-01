@@ -4,11 +4,11 @@ body {
     background-color: #333333 !important;
     min-height: 100vh;
     overflow-x: hidden;
+    font-family: 'Exo 2', sans-serif !important;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, p, li {
     color: white;
-    font-family: 'Exo 2', sans-serif;
     font-weight: 100 !important;
 }
 
@@ -20,8 +20,12 @@ h2 {
     font-size: 5vw !important;
 }
 
-h3 {
+h3, li {
     font-size: calc(10px + 2vmin) !important;
+}
+
+a {
+    color: white !important;
 }
 
 .section {
@@ -42,30 +46,41 @@ h3 {
     padding: 50px 0px;
     border: 3px solid white;
     border-radius: 8px;
+    background-color: #333333;
 }
 
-.list-group-item.active {
-    background-color: white !important;
-    border-color: white !important;
-    color: #333333 !important;
+.card-deck {
+    margin-bottom: 50px;
 }
 
-.list-group-item {
+.card {
     background-color: #333333 !important;
     border-color: white !important;
     color: white !important;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.jumbotron {
+    background-color: #444 !important;
+    border-radius: 20px !important;
+}
+
+.iconButton {
+    background: transparent !important;
+    border: none !important;
 }
 
 /* Scrollbar */
 /* width */
 ::-webkit-scrollbar {
-	width: 5px;
-	height: 10px;
+	width: 7.5px;
+	height: 15px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-	background: #333333;
+	background: #222;
 }
 
 /* Handle */
