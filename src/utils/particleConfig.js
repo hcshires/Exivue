@@ -31,6 +31,10 @@ export const options = {
 			},
 		},
 	},
+	backgroundMode: {
+		enable: true,
+		zIndex: -1,
+	},
 	particles: {
 		color: {
 			value: "#ffffff",
@@ -58,7 +62,7 @@ export const options = {
 				enable: true,
 				value_area: 800,
 			},
-			value: 30,
+			value: 40,
 		},
 		opacity: {
 			value: 0.5,
