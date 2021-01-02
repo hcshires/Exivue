@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { Container, Row, Col, Button, Image, Card, CardDeck, ResponsiveEmbed, Jumbotron } from "react-bootstrap";
 import Particles from "react-tsparticles";
 import { options } from "../utils/particleConfig.js";
-import { motion } from "framer-motion";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 import { BsChevronDoubleDown } from "react-icons/bs";
 import "../styles/global.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -38,6 +38,9 @@ import groundhogDay from "../images/groundhog-day.png";
  * ExiVue Single Page
  */
 const IndexPage = () => {
+	/* Keyframes */
+	const { scrollYProgress } = useViewportScroll();
+
 	return (
 		<Container fluid className="h-100">
 			<Helmet>
@@ -71,29 +74,43 @@ const IndexPage = () => {
 			</Row>
 			{/* Key Belief */}
 			<Row className="h-100 justify-content-center">
-				<Col xs={10} className="header verticalAlign text-center">
-					<h2>The KEY BELIEF</h2>
-					<h3>There are TWO HANDS of Existentialism</h3>
+				<Col xs={10} className="verticalAlign text-center">
+					<motion.div className="header" style={{ x: useTransform(scrollYProgress, [0, 0.07], [-1000, 0]) }}>
+						<h2>The KEY BELIEF</h2>
+						<h3>There are TWO HANDS of Existentialism</h3>
+					</motion.div>
 				</Col>
 			</Row>
 			<Row className="h-100 justify-content-center" style={{ marginTop: "50px" }}>
 				<Col md={5} className="verticalAlign">
-					<h3>
+					<motion.h3
+						style={{
+							y: useTransform(scrollYProgress, [0.07, 0.09], [-100, 0]),
+							opacity: useTransform(scrollYProgress, [0.05, 0.1], [0, 1]),
+						}}>
 						While ONE HAND is devoted to observing that there is an end to everything, the OTHER HAND creates motivation to
 						CONTROL one's outcome and RESPOND effectively to suffering
-					</h3>
+					</motion.h3>
 				</Col>
 				<Col md={5} className="verticalAlign">
-					<Image fluid src={hands} />
+					<motion.div style={{ opacity: useTransform(scrollYProgress, [0.05, 0.11], [0, 1]) }}>
+						<Image fluid src={hands} />
+					</motion.div>
 				</Col>
 				<Col md={5} className="verticalAlign">
-					<Image fluid src={timeline} />
+					<motion.div style={{ opacity: useTransform(scrollYProgress, [0.11, 0.17], [0, 1]) }}>
+						<Image fluid src={timeline} />
+					</motion.div>
 				</Col>
 				<Col md={5} className="verticalAlign">
-					<h3>
+					<motion.h3
+						style={{
+							y: useTransform(scrollYProgress, [0.1, 0.13], [-100, 0]),
+							opacity: useTransform(scrollYProgress, [0.1, 0.12], [0, 1]),
+						}}>
 						Existentialism became a popular concept with the 1st and 2nd World Wars, due to the extreme experiences and the
 						seemlingly unending conflicts and injustices
-					</h3>
+					</motion.h3>
 				</Col>
 				<Col md={10}>
 					<h2></h2>
@@ -101,52 +118,95 @@ const IndexPage = () => {
 			</Row>
 			{/* Emotion */}
 			<Row className="h-100 justify-content-center">
-				<Col xs={10} className="header verticalAlign text-center">
-					<h2>EMOTIONS</h2>
-					<h3>The thoughts and feelings of Existentialism</h3>
+				<Col xs={10} className="verticalAlign text-center">
+					<motion.div className="header" style={{ x: useTransform(scrollYProgress, [0.1, 0.17], [1000, 0]) }}>
+						<h2>EMOTIONS</h2>
+						<h3>The thoughts and feelings of Existentialism</h3>
+					</motion.div>
 				</Col>
 			</Row>
 			<Row className="h-100 justify-content-center" style={{ marginTop: "100px" }}>
 				{/* Alienation */}
 				<Col md={5} className="verticalAlign">
-					<h2>ALIENATION</h2>
-					<h3>A sense of disconnection or isolation from social relationships or a group with common values</h3>
+					<motion.div
+						style={{
+							rotate: useTransform(scrollYProgress, [0.17, 0.2], [-90, 0]),
+							opacity: useTransform(scrollYProgress, [0.17, 0.2], [0, 1]),
+						}}>
+						<h2>ALIENATION</h2>
+						<h3>A sense of disconnection or isolation from social relationships or a group with common values</h3>
+					</motion.div>
 				</Col>
 				<Col md={5} className="verticalAlign">
-					<Image fluid src={alienation} />
+					<motion.div style={{ opacity: useTransform(scrollYProgress, [0.17, 0.2], [0, 1]) }}>
+						<Image fluid src={alienation} />
+					</motion.div>
 				</Col>
 			</Row>
 			{/* Despair */}
 			<Row className="h-100 justify-content-center section">
 				<Col md={5} className="verticalAlign">
-					<Image fluid src={despair} />
+					<motion.div style={{ opacity: useTransform(scrollYProgress, [0.2, 0.23], [0, 1]) }}>
+						<Image fluid src={despair} />
+					</motion.div>
 				</Col>
 				<Col md={5} className="verticalAlign">
-					<h2>DESPAIR</h2>
-					<h3>
-						The loss or absence of hope; the anticipation of a future, positive outcome is no longer present in individuals
-						with despair
-					</h3>
+					<motion.div
+						style={{
+							rotate: useTransform(scrollYProgress, [0.2, 0.23], [90, 0]),
+							opacity: useTransform(scrollYProgress, [0.2, 0.23], [0, 1]),
+						}}>
+						<h2>DESPAIR</h2>
+						<h3>
+							The loss or absence of hope; the anticipation of a future, positive outcome is no longer present in individuals
+							with despair
+						</h3>
+					</motion.div>
 				</Col>
 			</Row>
 			{/* Nothingness */}
 			<Row className="h-100 justify-content-center section">
 				<Col md={5} className="verticalAlign">
-					<h2>NOTHINGNESS</h2>
-					<h3>The absense of things which one desires or expects to be present</h3>
+					<motion.div
+						style={{
+							rotate: useTransform(scrollYProgress, [0.24, 0.27], [-90, 0]),
+							opacity: useTransform(scrollYProgress, [0.24, 0.27], [0, 1]),
+						}}>
+						<h2>NOTHINGNESS</h2>
+						<h3>The absense of things which one desires or expects to be present</h3>
+					</motion.div>
 				</Col>
 				<Col md={5} className="verticalAlign">
-					<Image fluid src={nothingness} />
+					<motion.div
+						style={{
+							opacity: useTransform(scrollYProgress, [0.24, 0.27], [0, 1]),
+							x: useTransform(scrollYProgress, [0.24, 0.27], [1000, 0]),
+						}}>
+						<Image fluid src={nothingness} />
+					</motion.div>
 				</Col>
 			</Row>
 			{/* Absurdity */}
 			<Row className="h-100 justify-content-center section">
 				<Col md={5} className="verticalAlign">
-					<Image fluid src={absurdity} />
+					<motion.div
+						style={{
+							rotate: useTransform(scrollYProgress, [0.285, 0.29, 0.3, 0.31, 0.315, 0.32, 0.325, 0.33, 0.335 ], [ 90, 180, 270, 360, 0, 90, 180, 270, 360 ]),
+							x: useTransform(scrollYProgress, [0.27, 0.34], [-1000, 0]),
+							y: useTransform(scrollYProgress, [0.27, 0.34], [-1000, 0]),
+						}}>
+						<Image fluid src={absurdity} />
+					</motion.div>
 				</Col>
 				<Col md={5} className="verticalAlign">
-					<h2>ABSURDITY</h2>
-					<h3>Feeling rediculousness or unreasonability on oneself or the state of something else</h3>
+					<motion.div
+						style={{
+							rotate: useTransform(scrollYProgress, [0.3, 0.33], [90, 0]),
+							opacity: useTransform(scrollYProgress, [0.3, 0.33], [0, 1]),
+						}}>
+						<h2>ABSURDITY</h2>
+						<h3>Feeling rediculousness or unreasonability on oneself or the state of something else</h3>
+					</motion.div>
 				</Col>
 			</Row>
 			{/* Fate */}
@@ -218,9 +278,11 @@ const IndexPage = () => {
 			</Row>
 			{/* Resources */}
 			<Row className="h-100 justify-content-center text-center">
-				<Col xs={10} className="header verticalAlign">
-					<h2>EXAMPLES AND RESOURCES</h2>
-					<h3>Check out examples that utilize Existentialism in the overall meaning of the work</h3>
+				<Col xs={10} className="verticalAlign">
+					<motion.div className="header" style={{ opacity: scrollYProgress }}>
+						<h2>EXAMPLES AND RESOURCES</h2>
+						<h3>Check out examples that utilize Existentialism in the overall meaning of the work</h3>
+					</motion.div>
 				</Col>
 			</Row>
 			<Row className="h-100 justify-content-center text-center section">
@@ -243,7 +305,7 @@ const IndexPage = () => {
 				<Col xs={10}>
 					<Card className="text-center" style={{ marginBottom: "50px" }}>
 						<Card.Header>Artwork</Card.Header>
-						<Card.Img variant="top" src={art} height="750" />
+						<Image fluid src={art} />
 						<Card.Body>
 							<Card.Title>The work of Jackson Pollock</Card.Title>
 							<Card.Text>
@@ -357,7 +419,9 @@ const IndexPage = () => {
 					</CardDeck>
 				</Col>
 				<Col xs={11} style={{ margin: "50px 0" }}>
-					<h2>Life will always be temporary...but YOU can CHOOSE what you make of it</h2>
+					<motion.h2 animate={{ scale: [1.05, 0.95] }} transition={{ repeat: Infinity, repeatType: "reverse", duration: 7 }}>
+						Life will always be temporary...but YOU can CHOOSE what you make of it
+					</motion.h2>
 				</Col>
 			</Row>
 			{/* Footer */}
