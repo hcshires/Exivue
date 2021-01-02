@@ -40,6 +40,7 @@ import groundhogDay from "../images/groundhog-day.png";
 const IndexPage = () => {
 	/* Keyframes */
 	const { scrollYProgress } = useViewportScroll();
+	const initXPos = 1000;
 
 	return (
 		<Container fluid className="h-100">
@@ -75,7 +76,7 @@ const IndexPage = () => {
 			{/* Key Belief */}
 			<Row className="h-100 justify-content-center">
 				<Col xs={10} className="verticalAlign text-center">
-					<motion.div className="header" style={{ x: useTransform(scrollYProgress, [0, 0.07], [-1000, 0]) }}>
+					<motion.div className="header" style={{ x: useTransform(scrollYProgress, [0, 0.07], [-initXPos, 0]) }}>
 						<h2>The KEY BELIEF</h2>
 						<h3>There are TWO HANDS of Existentialism</h3>
 					</motion.div>
@@ -98,7 +99,7 @@ const IndexPage = () => {
 					</motion.div>
 				</Col>
 				<Col md={5} className="verticalAlign">
-					<motion.div style={{ opacity: useTransform(scrollYProgress, [0.11, 0.17], [0, 1]) }}>
+					<motion.div style={{ opacity: useTransform(scrollYProgress, [0.11, 0.15], [0, 1]) }}>
 						<Image fluid src={timeline} />
 					</motion.div>
 				</Col>
@@ -108,7 +109,7 @@ const IndexPage = () => {
 							y: useTransform(scrollYProgress, [0.1, 0.13], [-100, 0]),
 							opacity: useTransform(scrollYProgress, [0.1, 0.12], [0, 1]),
 						}}>
-						Existentialism became a popular concept with the 1st and 2nd World Wars, due to the extreme experiences and the
+						Existentialism became a popular concept with the 1st and 2nd World Wars due to the extreme experiences and the
 						seemlingly unending conflicts and injustices
 					</motion.h3>
 				</Col>
@@ -119,7 +120,7 @@ const IndexPage = () => {
 			{/* Emotion */}
 			<Row className="h-100 justify-content-center">
 				<Col xs={10} className="verticalAlign text-center">
-					<motion.div className="header" style={{ x: useTransform(scrollYProgress, [0.1, 0.17], [1000, 0]) }}>
+					<motion.div className="header" style={{ x: useTransform(scrollYProgress, [0.1, 0.17], [initXPos, 0]) }}>
 						<h2>EMOTIONS</h2>
 						<h3>The thoughts and feelings of Existentialism</h3>
 					</motion.div>
@@ -180,7 +181,7 @@ const IndexPage = () => {
 					<motion.div
 						style={{
 							opacity: useTransform(scrollYProgress, [0.24, 0.27], [0, 1]),
-							x: useTransform(scrollYProgress, [0.24, 0.27], [1000, 0]),
+							x: useTransform(scrollYProgress, [0.24, 0.27], [initXPos, 0]),
 						}}>
 						<Image fluid src={nothingness} />
 					</motion.div>
@@ -191,9 +192,13 @@ const IndexPage = () => {
 				<Col md={5} className="verticalAlign">
 					<motion.div
 						style={{
-							rotate: useTransform(scrollYProgress, [0.285, 0.29, 0.3, 0.31, 0.315, 0.32, 0.325, 0.33, 0.335 ], [ 90, 180, 270, 360, 0, 90, 180, 270, 360 ]),
-							x: useTransform(scrollYProgress, [0.27, 0.34], [-1000, 0]),
-							y: useTransform(scrollYProgress, [0.27, 0.34], [-1000, 0]),
+							rotate: useTransform(
+								scrollYProgress,
+								[0.285, 0.29, 0.3, 0.31, 0.315, 0.32, 0.325, 0.33, 0.335],
+								[90, 180, 270, 360, 0, 90, 180, 270, 360]
+							),
+							x: useTransform(scrollYProgress, [0.27, 0.34], [-initXPos, 0]),
+							y: useTransform(scrollYProgress, [0.27, 0.34], [-initXPos, 0]),
 						}}>
 						<Image fluid src={absurdity} />
 					</motion.div>
@@ -210,76 +215,88 @@ const IndexPage = () => {
 				</Col>
 			</Row>
 			{/* Fate */}
-			<Jumbotron fluid>
-				<Container>
-					<h1 className="text-center">FATE...</h1>
-					<ul>
-						<li>Decides our inevitable destiny and our future</li>
-						<li>Does NOT describe the JOURNEY to that future</li>
-						<li>
-							Provides a "Moment In-Between" the struggle so we realize we can accept and stand up to our decided future: a
-							VERY IMPORTANT moment
-						</li>
-					</ul>
-				</Container>
-			</Jumbotron>
+			<motion.div
+				style={{
+					scale: useTransform(scrollYProgress, [0.36, 0.38], [5, 1]),
+					opacity: useTransform(scrollYProgress, [0.36, 0.38], [0, 1]),
+				}}>
+				<Jumbotron fluid>
+					<Container>
+						<h1 className="text-center">FATE...</h1>
+						<ul>
+							<li>Decides our inevitable destiny and our future</li>
+							<li>Does NOT describe the JOURNEY to that future</li>
+							<li>
+								Provides a "Moment In-Between" the struggle so we realize we can accept and stand up to our decided future: a
+								VERY IMPORTANT moment
+							</li>
+						</ul>
+					</Container>
+				</Jumbotron>
+			</motion.div>
 
 			{/* Key Thinkers */}
 			<Row className="h-100 justify-content-center text-center">
-				<Col xs={10} className="header verticalAlign">
-					<h2>KEY EXISTENTIALIST THINKERS</h2>
+				<Col xs={10} className="verticalAlign">
+					<motion.div className="header" style={{ x: useTransform(scrollYProgress, [0.41, 0.45], [-initXPos, 0]) }}>
+						<h2>KEY EXISTENTIALIST THINKERS</h2>
+					</motion.div>
 				</Col>
 			</Row>
 			<Row className="h-100 justify-content-center text-center section">
 				<Col xs={10}>
-					<CardDeck>
-						<Card>
-							<Card.Img variant="top" src={person1} />
-							<Card.Body>
-								<Card.Title>Søren Kierkegaard</Card.Title>
-								<Button
-									variant="light"
-									onClick={() => window.open("https://plato.stanford.edu/entries/kierkegaard/", "_blank")}>
-									Learn about Kierkegaard
-								</Button>
-							</Card.Body>
-						</Card>
-						<Card>
-							<Card.Img variant="top" src={person2} />
-							<Card.Body>
-								<Card.Title>Friedrich Nietzsche</Card.Title>
-								<Button
-									variant="light"
-									onClick={() => window.open("https://plato.stanford.edu/entries/nietzsche/", "_blank")}>
-									Learn about Nietzsche
-								</Button>
-							</Card.Body>
-						</Card>
-						<Card>
-							<Card.Img variant="top" src={person3} />
-							<Card.Body>
-								<Card.Title>Albert Camus</Card.Title>
-								<Button variant="light" onClick={() => window.open("https://plato.stanford.edu/entries/camus/", "_blank")}>
-									Learn about Camus
-								</Button>
-							</Card.Body>
-						</Card>
-						<Card>
-							<Card.Img variant="top" src={person4} />
-							<Card.Body>
-								<Card.Title>Jean-Paul Sartre</Card.Title>
-								<Button variant="light" onClick={() => window.open("https://plato.stanford.edu/entries/sartre/", "_blank")}>
-									Learn about Sartre
-								</Button>
-							</Card.Body>
-						</Card>
-					</CardDeck>
+					<motion.div style={{ x: useTransform(scrollYProgress, [0.45, 0.48], [-initXPos * 2, 0]) }}>
+						<CardDeck>
+							<Card>
+								<Card.Img variant="top" src={person1} />
+								<Card.Body>
+									<Card.Title>Søren Kierkegaard</Card.Title>
+									<Button
+										variant="light"
+										onClick={() => window.open("https://plato.stanford.edu/entries/kierkegaard/", "_blank")}>
+										Learn about Kierkegaard
+									</Button>
+								</Card.Body>
+							</Card>
+							<Card>
+								<Card.Img variant="top" src={person2} />
+								<Card.Body>
+									<Card.Title>Friedrich Nietzsche</Card.Title>
+									<Button
+										variant="light"
+										onClick={() => window.open("https://plato.stanford.edu/entries/nietzsche/", "_blank")}>
+										Learn about Nietzsche
+									</Button>
+								</Card.Body>
+							</Card>
+							<Card>
+								<Card.Img variant="top" src={person3} />
+								<Card.Body>
+									<Card.Title>Albert Camus</Card.Title>
+									<Button variant="light" onClick={() => window.open("https://plato.stanford.edu/entries/camus/", "_blank")}>
+										Learn about Camus
+									</Button>
+								</Card.Body>
+							</Card>
+							<Card>
+								<Card.Img variant="top" src={person4} />
+								<Card.Body>
+									<Card.Title>Jean-Paul Sartre</Card.Title>
+									<Button
+										variant="light"
+										onClick={() => window.open("https://plato.stanford.edu/entries/sartre/", "_blank")}>
+										Learn about Sartre
+									</Button>
+								</Card.Body>
+							</Card>
+						</CardDeck>
+					</motion.div>
 				</Col>
 			</Row>
 			{/* Resources */}
 			<Row className="h-100 justify-content-center text-center">
 				<Col xs={10} className="verticalAlign">
-					<motion.div className="header" style={{ opacity: scrollYProgress }}>
+					<motion.div className="header" style={{ x: useTransform(scrollYProgress, [0.5, 0.54], [initXPos, 0]) }}>
 						<h2>EXAMPLES AND RESOURCES</h2>
 						<h3>Check out examples that utilize Existentialism in the overall meaning of the work</h3>
 					</motion.div>
@@ -287,139 +304,187 @@ const IndexPage = () => {
 			</Row>
 			<Row className="h-100 justify-content-center text-center section">
 				<Col md={5} className="verticalAlign">
-					<h2>The Myth of Sisyphus</h2>
-					<h3>A Greek Mythology example where a self-centered king learns to accept his fate and "beat" his punishment</h3>
+					<motion.div
+						style={{
+							y: useTransform(scrollYProgress, [0.55, 0.57], [-100, 0]),
+							opacity: useTransform(scrollYProgress, [0.55, 0.57], [0, 1]),
+						}}>
+						<h2>The Myth of Sisyphus</h2>
+						<h3>A Greek Mythology example where a self-centered king learns to accept his fate and "beat" his punishment</h3>
+					</motion.div>
 				</Col>
-				<Col md={5} className="header verticalAlign" style={{ marginBottom: "100px" }}>
-					<ResponsiveEmbed aspectRatio="16by9">
-						<iframe
-							title="TEDEd Sisyphus"
-							width="1280"
-							height="720"
-							src="https://www.youtube.com/embed/q4pDUxth5fQ"
-							frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen></iframe>
-					</ResponsiveEmbed>
+				<Col md={5} className="verticalAlign" style={{ marginBottom: "100px" }}>
+					<motion.div
+						className="header"
+						style={{
+							y: useTransform(scrollYProgress, [0.55, 0.57], [100, 0]),
+							opacity: useTransform(scrollYProgress, [0.55, 0.57], [0, 1]),
+						}}>
+						<ResponsiveEmbed aspectRatio="16by9">
+							<iframe
+								title="TEDEd Sisyphus"
+								width="1280"
+								height="720"
+								src="https://www.youtube.com/embed/q4pDUxth5fQ"
+								frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
+						</ResponsiveEmbed>
+					</motion.div>
 				</Col>
 				<Col xs={10}>
-					<Card className="text-center" style={{ marginBottom: "50px" }}>
-						<Card.Header>Artwork</Card.Header>
-						<Image fluid src={art} />
-						<Card.Body>
-							<Card.Title>The work of Jackson Pollock</Card.Title>
-							<Card.Text>
-								The style Jackson Pollock embraced seems chaotic and extreme, as brush strokes are layered on top of each
-								other in seemlingly random patterns with unmatching colors. However, his works are deliberate, since his
-								brush strokes were controlled and his creative decisions were a direct cause of the end result.
-							</Card.Text>
-						</Card.Body>
-					</Card>
-					<CardDeck>
-						<Card>
-							<Card.Header>Popular Film</Card.Header>
-							<Card.Img variant="top" src={memento} />
+					<motion.div
+						style={{
+							rotateY: useTransform(scrollYProgress, [0.6, 0.65], [90, 0]),
+							opacity: useTransform(scrollYProgress, [0.6, 0.65], [0, 1]),
+						}}>
+						<Card className="text-center" style={{ marginBottom: "50px" }}>
+							<Card.Header>Artwork</Card.Header>
+							<Image fluid src={art} />
 							<Card.Body>
-								<Card.Title>Memento</Card.Title>
-								<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0209144/", "_blank")}>
-									View Film
-								</Button>
+								<Card.Title>The work of Jackson Pollock</Card.Title>
+								<Card.Text>
+									The style Jackson Pollock embraced seems chaotic and extreme, as brush strokes are layered on top of each
+									other in seemlingly random patterns with unmatching colors. However, his works are deliberate, since his
+									brush strokes were controlled and his creative decisions were a direct cause of the end result.
+								</Card.Text>
 							</Card.Body>
 						</Card>
-						<Card>
-							<Card.Header>Popular Film</Card.Header>
-							<Card.Img variant="top" src={truman} />
-							<Card.Body>
-								<Card.Title>The Truman Show</Card.Title>
-								<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0120382/", "_blank")}>
-									View Film
-								</Button>
-							</Card.Body>
-						</Card>
-						<Card>
-							<Card.Header>Popular Film</Card.Header>
-							<Card.Img variant="top" src={matrix} />
-							<Card.Body>
-								<Card.Title>The Matrix</Card.Title>
-								<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0133093/", "_blank")}>
-									View Film
-								</Button>
-							</Card.Body>
-						</Card>
-					</CardDeck>
-					<CardDeck>
-						<Card>
-							<Card.Header>Popular Film</Card.Header>
-							<Card.Img variant="top" src={kane} />
-							<Card.Body>
-								<Card.Title>Citizen Kane</Card.Title>
-								<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0033467/", "_blank")}>
-									View Film
-								</Button>
-							</Card.Body>
-						</Card>
-						<Card>
-							<Card.Header>Popular Film</Card.Header>
-							<Card.Img variant="top" src={eternalSunshine} />
-							<Card.Body>
-								<Card.Title>Eternal Sunshine of the Spotless Mind</Card.Title>
-								<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0338013/", "_blank")}>
-									View Film
-								</Button>
-							</Card.Body>
-						</Card>
-						<Card>
-							<Card.Header>Popular Film</Card.Header>
-							<Card.Img variant="top" src={groundhogDay} />
-							<Card.Body>
-								<Card.Title>Groundhog Day</Card.Title>
-								<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0107048/", "_blank")}>
-									View Film
-								</Button>
-							</Card.Body>
-						</Card>
-					</CardDeck>
+					</motion.div>
+					<motion.div style={{ x: useTransform(scrollYProgress, [0.67, 0.72], [initXPos * 2, 0]) }}>
+						<CardDeck>
+							<Card>
+								<Card.Header>Popular Film</Card.Header>
+								<Card.Img variant="top" src={memento} />
+								<Card.Body>
+									<Card.Title>Memento</Card.Title>
+									<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0209144/", "_blank")}>
+										View Film
+									</Button>
+								</Card.Body>
+							</Card>
+							<Card>
+								<Card.Header>Popular Film</Card.Header>
+								<Card.Img variant="top" src={truman} />
+								<Card.Body>
+									<Card.Title>The Truman Show</Card.Title>
+									<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0120382/", "_blank")}>
+										View Film
+									</Button>
+								</Card.Body>
+							</Card>
+							<Card>
+								<Card.Header>Popular Film</Card.Header>
+								<Card.Img variant="top" src={matrix} />
+								<Card.Body>
+									<Card.Title>The Matrix</Card.Title>
+									<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0133093/", "_blank")}>
+										View Film
+									</Button>
+								</Card.Body>
+							</Card>
+						</CardDeck>
+					</motion.div>
+					<motion.div style={{ x: useTransform(scrollYProgress, [0.75, 0.8], [-initXPos * 2, 0]) }}>
+						<CardDeck>
+							<Card>
+								<Card.Header>Popular Film</Card.Header>
+								<Card.Img variant="top" src={kane} />
+								<Card.Body>
+									<Card.Title>Citizen Kane</Card.Title>
+									<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0033467/", "_blank")}>
+										View Film
+									</Button>
+								</Card.Body>
+							</Card>
+							<Card>
+								<Card.Header>Popular Film</Card.Header>
+								<Card.Img variant="top" src={eternalSunshine} />
+								<Card.Body>
+									<Card.Title>Eternal Sunshine of the Spotless Mind</Card.Title>
+									<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0338013/", "_blank")}>
+										View Film
+									</Button>
+								</Card.Body>
+							</Card>
+							<Card>
+								<Card.Header>Popular Film</Card.Header>
+								<Card.Img variant="top" src={groundhogDay} />
+								<Card.Body>
+									<Card.Title>Groundhog Day</Card.Title>
+									<Button variant="light" onClick={() => window.open("https://www.imdb.com/title/tt0107048/", "_blank")}>
+										View Film
+									</Button>
+								</Card.Body>
+							</Card>
+						</CardDeck>
+					</motion.div>
 				</Col>
 			</Row>
 			{/* The Takeaway */}
 			<Row className="h-100 justify-content-center text-center">
-				<Col xs={10} className="header verticalAlign text-center">
-					<h2>THE TAKEAWAY</h2>
+				<Col xs={10} className="verticalAlign text-center">
+					<motion.div className="header" style={{ x: useTransform(scrollYProgress, [0.8, 0.87], [-initXPos, 0]) }}>
+						<h2>THE TAKEAWAY</h2>
+					</motion.div>
 				</Col>
 			</Row>
 			<Row className="h-100 justify-content-center text-center section">
-				<Col md={5} className="header verticalAlign text-center">
-					<ResponsiveEmbed aspectRatio="16by9">
-						<iframe
-							title="Existential Bummer YouTube Video"
-							width="1280"
-							height="720"
-							src="https://www.youtube.com/embed/Yb-OYmHVchQ"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen></iframe>
-					</ResponsiveEmbed>
+				<Col md={5} className="verticalAlign text-center">
+					<motion.div
+						className="header"
+						style={{
+							y: useTransform(scrollYProgress, [0.87, 0.9], [100, 0]),
+							opacity: useTransform(scrollYProgress, [0.87, 0.9], [0, 1]),
+						}}>
+						<ResponsiveEmbed aspectRatio="16by9">
+							<iframe
+								title="Existential Bummer YouTube Video"
+								width="1280"
+								height="720"
+								src="https://www.youtube.com/embed/Yb-OYmHVchQ"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
+						</ResponsiveEmbed>
+					</motion.div>
 				</Col>
-				<Col md={5} className="verticalAlign">
-					<h3>
-						Jason Silva talks about how Existentialism and Entropy exist in everything we interact with, but also how the
-						human spirit should respond and react so life can be the best it can.
-					</h3>
+				<Col md={5} className="verticalAlign text-right">
+					<motion.div
+						style={{
+							y: useTransform(scrollYProgress, [0.87, 0.9], [-100, 0]),
+							opacity: useTransform(scrollYProgress, [0.87, 0.9], [0, 1]),
+						}}>
+						<h2>Existential Bummer</h2>
+						<h3>
+							Jason Silva talks about how Existentialism and Entropy exist in everything we interact with, but also how the
+							human spirit should respond so life can be the best it can.
+						</h3>
+					</motion.div>
 				</Col>
-				<Col xs={10} style={{ marginTop: "50px" }} className="header verticalAlign">
-					<CardDeck style={{ marginBottom: "0px" }}>
-						<Card style={{ border: "none" }} className="verticalAlign">
-							<h3>In what ways do you see Existentialism portrayed in literature, arts, and/or film?</h3>
+				<Col xs={10} style={{ marginTop: "50px" }} className="verticalAlign">
+					<motion.div
+						className="header"
+						style={{
+							scale: useTransform(scrollYProgress, [0.94, 0.96], [0, 1]),
+							opacity: useTransform(scrollYProgress, [0.94, 0.96], [0, 1]),
+						}}>
+						<Card style={{ border: "none" }}>
+							<Card.Body>
+								<h3>In what ways do you see Existentialism portrayed in literature, arts, and/or film?</h3>
+							</Card.Body>
 						</Card>
-						<Card style={{ border: "none" }} className="verticalAlign">
-							<h3>
-								How can not only the understanding of Existentialism, but also the Human spirit "fighting back" influence
-								your life today? Will it improve the outcome?
-							</h3>
+						<Card style={{ border: "none" }}>
+							<Card.Body>
+								<h3>
+									How can not only the understanding of Existentialism, but also the Human spirit "fighting back" influence
+									your life today?
+								</h3>
+							</Card.Body>
 						</Card>
-					</CardDeck>
+					</motion.div>
 				</Col>
 				<Col xs={11} style={{ margin: "50px 0" }}>
-					<motion.h2 animate={{ scale: [1.05, 0.95] }} transition={{ repeat: Infinity, repeatType: "reverse", duration: 7 }}>
+					<motion.h2 animate={{ scale: [1.05, 0.95] }} transition={{ repeat: Infinity, repeatType: "reverse", duration: 5 }}>
 						Life will always be temporary...but YOU can CHOOSE what you make of it
 					</motion.h2>
 				</Col>
@@ -442,7 +507,7 @@ const IndexPage = () => {
 						Return to Henry's Projects
 					</Button>
 					<hr></hr>
-					<h5 style={{ paddingTop: "10px" }}>Designed by Henry Shires</h5>
+					<h5 style={{ paddingTop: "10px" }}>2021 - v1.0.0 - Designed by Henry Shires</h5>
 				</Col>
 			</Row>
 		</Container>

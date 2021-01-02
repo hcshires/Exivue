@@ -16,7 +16,7 @@ h1 {
 }
 
 h2 {
-    font-size: 5vw !important;
+    font-size: 4vw !important;
 }
 
 h3, li {
@@ -28,7 +28,7 @@ a {
 }
 
 .section {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .verticalAlign {
