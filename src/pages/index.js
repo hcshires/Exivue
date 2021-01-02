@@ -9,15 +9,21 @@ import "../styles/global.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 /* Main images */
+import favicon from "../images/favicon.ico";
 import timeline from "../images/timeline.png";
 import hands from "../images/hands.png";
 
 /* Emotion Images */
-import favicon from "../images/favicon.ico";
 import alienation from "../images/alienation.png";
 import despair from "../images/despair.png";
 import nothingness from "../images/nothingness.png";
 import absurdity from "../images/absurdity.png";
+
+/* People Images */
+import person1 from "../images/person1.png";
+import person2 from "../images/person2.png";
+import person3 from "../images/person3.png";
+import person4 from "../images/person4.png";
 
 /* Examples covers */
 import art from "../images/art.png";
@@ -40,7 +46,7 @@ const IndexPage = () => {
 				<link rel="canonical" href="https://hcshires.github.io/exivue" />
 				<link rel="icon" href={favicon} />
 			</Helmet>
-			<Particles id="tsparticles" options={options} style={{ position: "absolute" }} height="8000px" />
+			<Particles id="tsparticles" options={options} />
 			<Row className="justify-content-center h-100">
 				<motion.div animate={{ scale: [0, 1], opacity: [0, 1] }} transition={{ duration: 1 }}>
 					<Col xs={12} className="text-center" style={{ margin: "200px 0px" }}>
@@ -168,50 +174,44 @@ const IndexPage = () => {
 				<Col xs={10}>
 					<CardDeck>
 						<Card>
-							<Card.Img variant="top" src="holder.js/100px160" />
+							<Card.Img variant="top" src={person1} />
 							<Card.Body>
-								<Card.Title>Card title</Card.Title>
-								<Card.Text>
-									This is a wider card with supporting text below as a natural lead-in to additional content. This content is
-									a little bit longer.
-								</Card.Text>
+								<Card.Title>Søren Kierkegaard</Card.Title>
+								<Button
+									variant="light"
+									onClick={() => window.open("https://plato.stanford.edu/entries/kierkegaard/", "_blank")}>
+									Learn about Kierkegaard
+								</Button>
 							</Card.Body>
-							<Card.Footer>
-								<small className="text-muted">Last updated 3 mins ago</small>
-							</Card.Footer>
 						</Card>
 						<Card>
-							<Card.Img variant="top" src="holder.js/100px160" />
+							<Card.Img variant="top" src={person2} />
 							<Card.Body>
-								<Card.Title>Card title</Card.Title>
-								<Card.Text>This card has supporting text below as a natural lead-in to additional content. </Card.Text>
+								<Card.Title>Friedrich Nietzsche</Card.Title>
+								<Button
+									variant="light"
+									onClick={() => window.open("https://plato.stanford.edu/entries/nietzsche/", "_blank")}>
+									Learn about Nietzsche
+								</Button>
 							</Card.Body>
-							<Card.Footer>
-								<small className="text-muted">Last updated 3 mins ago</small>
-							</Card.Footer>
 						</Card>
 						<Card>
-							<Card.Img variant="top" src="holder.js/100px160" />
+							<Card.Img variant="top" src={person3} />
 							<Card.Body>
-								<Card.Title>Card title</Card.Title>
-								<Card.Text>
-									This is a wider card with supporting text below as a natural lead-in to additional content. This card has
-									even longer content than the first to show that equal height action.
-								</Card.Text>
+								<Card.Title>Albert Camus</Card.Title>
+								<Button variant="light" onClick={() => window.open("https://plato.stanford.edu/entries/camus/", "_blank")}>
+									Learn about Camus
+								</Button>
 							</Card.Body>
-							<Card.Footer>
-								<small className="text-muted">Last updated 3 mins ago</small>
-							</Card.Footer>
 						</Card>
 						<Card>
-							<Card.Img variant="top" src="holder.js/100px160" />
+							<Card.Img variant="top" src={person4} />
 							<Card.Body>
-								<Card.Title>Card title</Card.Title>
-								<Card.Text>This card has supporting text below as a natural lead-in to additional content. </Card.Text>
+								<Card.Title>Jean-Paul Sartre</Card.Title>
+								<Button variant="light" onClick={() => window.open("https://plato.stanford.edu/entries/sartre/", "_blank")}>
+									Learn about Sartre
+								</Button>
 							</Card.Body>
-							<Card.Footer>
-								<small className="text-muted">Last updated 3 mins ago</small>
-							</Card.Footer>
 						</Card>
 					</CardDeck>
 				</Col>
